@@ -11,13 +11,13 @@
 }
 
 .listLinkItem:hover .navLink{
-  color: rgb(187, 186, 186);
-}
-
-.listLinkItemActive:hover .navLink{
-  color: rgb(187, 186, 186);
+  color: white;
 }
 
 .listLinkItemActive {
   background-color: rgb(24, 145, 64);
+}
+
+.listLinkItemActive .navLink{
+  color: white;
 }

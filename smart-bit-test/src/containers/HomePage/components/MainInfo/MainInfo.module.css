@@ -1,7 +1,6 @@
 .mainInfoContainer {
   flex-basis: calc(25% - 22.5px);
-  margin: 15px;
-  border: 1px solid grey;
+  margin: 15px 15px 20px;
   box-sizing: border-box;
 }
 

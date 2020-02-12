@@ -1,6 +1,10 @@
 export const MESSAGES_FETCH_DATA_SUCCESS = 'MESSAGES_FETCH_DATA_SUCCESS';
 export const MESSAGES_IS_LOADING = 'MESSAGES__IS_LOADING';
 export const MESSAGES_HAS_ERRORED = 'MESSAGES__HAS_ERRORED';
+export const PROJECT_LIST_FETCH_DATA_SUCCESS = 'PROJECT_LIST_FETCH_DATA_SUCCESS';
+export const PROJECT_LIST_IS_LOADING = 'PROJECT_LIST_IS_LOADING';
+export const PROJECT_LIST_HAS_ERRORED = 'PROJECT_LIST_HAS_ERRORED';
+
 
 export const navLinks = [
   'Dashboard',
@@ -13,6 +17,21 @@ export const navLinks = [
   'App view',
   'Gallery',
   'Landing page',
+];
+
+export const monthNames = [
+  "January", 
+  "February", 
+  "March", 
+  "April", 
+  "May", 
+  "June",
+  "July", 
+  "August", 
+  "September", 
+  "October", 
+  "November", 
+  "December",
 ];
 
 export const mainInfoItems = [

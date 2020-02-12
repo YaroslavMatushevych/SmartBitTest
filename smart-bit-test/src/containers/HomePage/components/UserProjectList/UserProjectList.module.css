@@ -1,0 +1,9 @@
+.listItemHeading {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.listItemHeading, .listItem {
+  padding: 10px;
+  text-align-last: left;
+}
