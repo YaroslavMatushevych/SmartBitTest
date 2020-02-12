@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+.aside {
+  flex-basis: 20%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: rgb(10, 48, 49);
+}
+
+.mainContent {
+  flex-basis: 80%;
+}
