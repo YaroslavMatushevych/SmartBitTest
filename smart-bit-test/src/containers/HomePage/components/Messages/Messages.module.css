@@ -1,6 +1,16 @@
 .message {
-  border-bottom: 1px solid grey;
+  border-bottom: 2px solid whitesmoke;
+  padding: 15px 0;
+  text-align: left;
+  margin: 0 auto;
+  width: 90%;
 }
 
 .messageContainer {
+  flex-basis: 30%;
+}
+
+.messageText {
+  font-size: 13px;
+  margin-top: 2px;
 }

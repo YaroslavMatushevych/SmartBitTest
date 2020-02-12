@@ -1,9 +1,45 @@
+.UserProjectList {
+  margin: 0 20px ;
+}
+
 .listItemHeading {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .listItemHeading, .listItem {
   padding: 10px;
   text-align-last: left;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+}
+
+td {
+  font-size: 13px;
+  border-top: 2px solid whitesmoke;
+}
+
+.completed, .canceled {
+  padding: 3px 6px;
+  border-radius: 3px;
+  color: white;
+}
+.completed {
+  background-color: green;
+}
+.canceled {
+  background-color: orange;
+}
+
+.greenVal {
+  color: green;
+}
+.redVal {
+  color: red;
+}
+.orangeVal {
+  color: orange;
 }

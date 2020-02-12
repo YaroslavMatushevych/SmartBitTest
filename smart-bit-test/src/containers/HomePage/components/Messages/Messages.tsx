@@ -24,7 +24,7 @@ const Messages: React.FC = memo(() => {
     return (
       <div key={index} className={styles.message}>
         <h4>{`${message.name.first} ${message.name.last}`}</h4>
-        <p>{message.content}</p>
+        <p className={styles.messageText}>{message.content}</p>
       </div>
     )
   })

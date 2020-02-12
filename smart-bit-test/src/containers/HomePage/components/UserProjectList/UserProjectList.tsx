@@ -4,14 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 // components
 import Cards from '../../../../ui-library/components/Cards';
 // const
-import { monthNames } from '../../../../consts';
+// import { monthNames } from '../../../../consts';
 // actions
 import { projectListFetchData } from '../../../../actions/projectListActions';
 // styles
 import styles from './UserProjectList.module.css';
 
 const UserProjectList: React.FC = memo(() => {
-
   const projectList = useSelector((state: any) => state.projectList);
   const dispatch = useDispatch()
 
@@ -19,29 +18,45 @@ const UserProjectList: React.FC = memo(() => {
     dispatch(projectListFetchData('https://next.json-generator.com/api/json/get/EkI_HSfGu'));
   }, [dispatch]);
 
-  const getMonth = (date: string, monthNames: string[]) => {
-    return monthNames[new Date(date).getMonth()]
+  const checkStatus = (status: string) => {
+    if (status === 'completed') return (<span className={styles.completed} >Completed</span>);
+    if (status === 'pending') return (<span className={styles.pending} >Pending...</span>);
+    if (status === 'canceled') return (<span className={styles.canceled} >Canceled</span>);
   }
 
-  const checkStatus = () => {
-
+  const checkValue = (value: string) => {
+    if (value > '0') return (<span className={styles.greenVal}><i className="fas fa-long-arrow-alt-up" /> {Number(value).toFixed()}%</span>);
+    if (value < '0') return (<span className={styles.redVal}><i className="fas fa-long-arrow-alt-down" /> {Number(value).toFixed()}%</span>);
+    if (value === '0') return (<span className={styles.orangeVal}>{Number(value).toFixed()}</span>);
   }
 
-  const checkValue = () => {
-    
+  const getHours = (date: string) => {
+    let minutes: number | string = new Date(date).getMinutes();
+    if (minutes < 10) minutes = ('0' + minutes);
+    const hours = new Date(date).getHours();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+
+    return hours + ':' + minutes + ampm
   }
+
+  // const getMonth = (date: string, monthNames: string[]) => {
+  //   return monthNames[new Date(date).getMonth()]
+  // }
+  // const day = new Date(projectList.date).getDate();
+  // const month = getMonth(projectList.date, monthNames);
+  // const year = new Date(projectList.date).getFullYear();
 
   const renderListItems = projectList.map((projectList: any, index: number | string) => {
-    const day = new Date(projectList.date).getDate();
-    const month = getMonth(projectList.date, monthNames);
-    const year = new Date(projectList.date).getFullYear();
+    const status = checkStatus(projectList.status);
+    const value = checkValue(projectList.value);
+    const time = getHours(projectList.date);
 
     return (
       <tr key={index} className={styles.list}>
-        <td className={styles.listItem}>{projectList.status}</td>
-        <td className={styles.listItem}>{day} {month} {year}</td>
+        <td className={styles.listItem}>{status}</td>
+        <td className={styles.listItem}><i className="far fa-clock" /> {time}</td>
         <td className={styles.listItem}>{projectList.user}</td>
-        <td className={styles.listItem}>{projectList.value}</td>
+        <td className={styles.listItem}>{value}</td>
       </tr>
     )
   })
@@ -56,13 +71,17 @@ const UserProjectList: React.FC = memo(() => {
           type='instruments'
           content={
             <table className={styles.listContainer}>
-              <tr className={styles.listHeadings}>
-                <th className={styles.listItemHeading}>Status</th>
-                <th className={styles.listItemHeading}>Date</th>
-                <th className={styles.listItemHeading}>User</th>
-                <th className={styles.listItemHeading}>Value</th>
-              </tr>
-              {renderListItems}
+              <thead>
+                <tr className={styles.listHeadings}>
+                  <th className={styles.listItemHeading}>Status</th>
+                  <th className={styles.listItemHeading}>Date</th>
+                  <th className={styles.listItemHeading}>User</th>
+                  <th className={styles.listItemHeading}>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                {renderListItems}
+              </tbody>
             </table>
           }
         />}

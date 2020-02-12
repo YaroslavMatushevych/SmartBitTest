@@ -16,8 +16,9 @@
   box-sizing: border-box;
 }
 
-.instruments {
+.instruments i{
   color: gray;
+  padding: 0 3px;
 }
 
 .redSpan, .blueSpan, .greenSpan, .lightGreenSpan {
