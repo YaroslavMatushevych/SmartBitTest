@@ -17,3 +17,23 @@
 .instruments {
   color: gray;
 }
+
+.redSpan, .blueSpan, .greenSpan, .lightGreenSpan {
+  color: white;
+}
+
+.redSpan {
+  background-color: red;
+}
+
+.blueSpan {
+  background-color: blue;
+}
+
+.greenSpan {
+  background-color: green;
+}
+
+.lightGreenSpan {
+  background-color: lightgreen;
+}

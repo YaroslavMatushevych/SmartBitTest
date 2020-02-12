@@ -11,7 +11,7 @@ const NavList: React.FC = memo(() => {
 
   const data = navLinks.map((linkName, index) => {
     return (
-        <li className={(selectedLink === index)
+        <li key={index} className={(selectedLink === index)
           ? styles.listLinkItemActive
           : styles.listLinkItem}
           onClick={()=>setLink(index)}

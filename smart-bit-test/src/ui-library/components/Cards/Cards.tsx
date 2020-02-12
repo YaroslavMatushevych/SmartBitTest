@@ -10,7 +10,7 @@ interface Props {
   type: 'span' | 'select' | 'instruments';
   heading: string;
   content: any;
-  colorSpan?: 'redSpan' | 'blueSpan' | 'greenSpan' | 'lightGreenSpan';
+  colorSpan?: string;
   textSpan?: string;
 }
 
@@ -45,7 +45,7 @@ const Card: React.FC<Props> = ({ heading, id, className, type, content, textSpan
       id={id}
     >
       <header className={styles.cardHeader}>
-        <h2>{heading}</h2>
+        <h3>{heading}</h3>
         {renderType(type)}
       </header>
       {content}

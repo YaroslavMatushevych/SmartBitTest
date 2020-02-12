@@ -13,4 +13,7 @@
 
 .mainContent {
   flex-basis: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

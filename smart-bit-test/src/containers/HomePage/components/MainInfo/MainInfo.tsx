@@ -1,28 +1,42 @@
 // modules
-import React, { useState, memo } from 'react';
+import React, { memo } from 'react';
+// components
+import Cards from '../../../../ui-library/components/Cards';
+// consts 
+import { mainInfoItems } from '../../../../consts';
 // styles
 import styles from './MainInfo.module.css';
 
 const MainInfo: React.FC = memo(() => {
 
-  // const [selectedLink, setLink] = useState(9);
-
-  // const data = navLinks.map((linkName, index) => {
-  //   return (
-  //       <li className={(selectedLink === index)
-  //         ? styles.listLinkItemActive
-  //         : styles.listLinkItem}
-  //         onClick={()=>setLink(index)}
-  //       >
-  //         <a className={styles.navLink} href='#'>{linkName}</a>
-  //       </li>
-  //   )
-  // })
+  const data = mainInfoItems.map((item, index) => {
+    const addContent = (
+      <div className={styles.addContent}>
+        <p className={styles.number}>
+          {item.number}
+        </p>
+        <p className={styles.smallText}>
+          {item.smallText}
+        </p>
+      </div>
+    )
+    return (
+      <Cards
+        key={index}
+        className={styles.mainInfoContainer}
+        type='span'
+        heading={item.heading}
+        colorSpan={item.color}
+        textSpan={item.text}
+        content={addContent}
+      />
+    )
+  })
 
   return (
-    <ul>
+    <>
       {data}
-    </ul>
+    </>
   )
 });
 
