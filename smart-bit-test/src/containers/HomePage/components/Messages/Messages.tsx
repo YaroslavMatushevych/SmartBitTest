@@ -6,7 +6,7 @@ import Cards from '../../../../ui-library/components/Cards';
 // actions
 import { messagesFetchData } from '../../../../actions/messagesActions';
 // styles
-// import styles from './Messages.module.css';
+import styles from './Messages.module.css';
 
 const Messages: React.FC = memo(() => {
 
@@ -20,9 +20,9 @@ const Messages: React.FC = memo(() => {
     dispatch(messagesFetchData('https://next.json-generator.com/api/json/get/VycIKBzf_'));
   }, [dispatch]);
 
-  const data = messages.map((message: { name: { first: string; last: string; }; content: string; }) => {
+  const data = messages.map((message: { name: { first: string; last: string; }; content: string; }, index: string | number | undefined) => {
     return (
-      <div>
+      <div key={index} className={styles.message}>
         <h4>{`${message.name.first} ${message.name.last}`}</h4>
         <p>{message.content}</p>
       </div>
@@ -30,7 +30,7 @@ const Messages: React.FC = memo(() => {
   })
 
   return (
-    <div>
+    <div className={styles.messageContainer}>
       {(hasErrored) ? <p>Sorry! There was an error loading the items</p> :
         (isLoading) ? <p>Loading…</p> : <Cards heading='Messages' type='instruments' content={data} />}
     </div>

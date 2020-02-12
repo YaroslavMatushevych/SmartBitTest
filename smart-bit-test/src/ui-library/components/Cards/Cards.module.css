@@ -1,6 +1,7 @@
 .card {
   min-height: 100px;
   min-width: 100px;
+  background-color: white;
 }
 
 .cardHeader {

@@ -4,6 +4,7 @@ import React, { memo } from 'react';
 import Messages from './components/Messages';
 import NavList from './components/NavList';
 import MainInfo from './components/MainInfo';
+import Orders from './components/Orders';
 // styles
 import styles from './HomePage.module.css';
 
@@ -18,6 +19,7 @@ const HomePage: React.FC = memo(() => {
       </aside>
       <div className={styles.mainContent}>
         <MainInfo />
+        <Orders />
         <Messages />
       </div>
     </main>

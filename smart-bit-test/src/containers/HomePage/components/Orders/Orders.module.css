@@ -1,0 +1,9 @@
+.ordersContainer {
+  flex-basis: 100%;
+  margin-bottom: 15px;
+  border: 1px solid grey;
+}
+
+.imgOrder {
+  width: 100%;
+}
