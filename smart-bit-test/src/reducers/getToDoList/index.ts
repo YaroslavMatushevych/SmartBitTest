@@ -18,7 +18,7 @@ const initialState: State = {
   toDoListIsLoading: false,
 };
 
-export default (state: State = initialState, action: ToDoActions) => {
+export default (state: State = initialState, action: ToDoActions): State => {
   switch (action.type) {
     case TO_DO_LIST_CHECK:
       return {

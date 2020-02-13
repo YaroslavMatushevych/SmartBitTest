@@ -1,40 +1,43 @@
 // typings
-import { projectListHasErroredAction, projectListIsLoadingAction, projectListFetchDataSuccessAction, State } from './typings';
+import { projectListActions, State } from './typings';
 // consts
-import { PROJECT_LIST_FETCH_DATA_SUCCESS, PROJECT_LIST_IS_LOADING, PROJECT_LIST_HAS_ERRORED } from '../../consts';
+import {
+  PROJECT_LIST_FETCH_DATA_SUCCESS,
+  PROJECT_LIST_IS_LOADING,
+  PROJECT_LIST_HAS_ERRORED
+} from '../../consts';
 
-const initialState: State = [
-  {
+const initialState: State = {
+  projectListItems: [{
     status: '',
     date: '',
     user: '',
     value: '',
-  }];
+  }],
+  projectListHasErrored: false,
+  projectListIsLoading: false,
+};
 
-export const projectListHasErrored = (state = false, action: projectListHasErroredAction): boolean => {
+export default (state: State = initialState, action: projectListActions): State => {
   switch (action.type) {
     case PROJECT_LIST_HAS_ERRORED:
-      return action.payload.hasErrored;
-
-    default:
-      return state;
-  }
-}
-
-export const projectListIsLoading = (state = false, action: projectListIsLoadingAction): boolean => {
-  switch (action.type) {
+      const hasErrored = action.payload.hasErrored;
+      return {
+        ...state,
+        projectListHasErrored: hasErrored
+      };
     case PROJECT_LIST_IS_LOADING:
-      return action.payload.isLoading;
-
-    default:
-      return state;
-  }
-}
-
-export const projectList = (state: State = initialState, action: projectListFetchDataSuccessAction) => {
-  switch (action.type) {
+      const isLoading = action.payload.isLoading;
+      return {
+        ...state,
+        projectListIsLoading: isLoading
+      };
     case PROJECT_LIST_FETCH_DATA_SUCCESS:
-      return action.payload.projectList;
+      const projectList = action.payload.projectList;
+      return {
+        ...state,
+        projectListItems: projectList
+      };
 
     default:
       return state;

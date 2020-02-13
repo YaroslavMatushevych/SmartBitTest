@@ -3,6 +3,8 @@ import React, { useEffect, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // components
 import Cards from '../../../../ui-library/components/Cards';
+// typings
+import { AppState } from '../../../../reducers/typings';
 // actions
 import { transactionsFetchData } from '../../../../actions/transactionsActions';
 // styles
@@ -11,9 +13,9 @@ import styles from './Transactions.module.css';
 import TransactionsMapImg from '../../../../assets/TransactionsMap.png';
 
 const Transactions: React.FC = memo(() => {
-  const transactionList = useSelector((state: any) => state.transactions.transactionList);
-  const hasErrored = useSelector((state: any) => state.transactions.hasErrored);
-  const isLoading = useSelector((state: any) => state.transactions.isLoading);
+  const transactionList = useSelector((state: AppState) => state.transactions.transactionList);
+  const hasErrored = useSelector((state: AppState) => state.transactions.transactionHasErrored);
+  const isLoading = useSelector((state: AppState) => state.transactions.transactionIsLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {

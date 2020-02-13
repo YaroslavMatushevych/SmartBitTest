@@ -2,7 +2,7 @@ import * as transactionActions from '../../actions/transactionsActions';
 import { ActionType } from 'typesafe-actions';
 
 export type State = {
-  transactionList: [{
+  transactionList: {
     txid: string,
     txnum: number,
     transaction: string,
@@ -10,7 +10,7 @@ export type State = {
     latitude: string,
     longitude: string,
     amount: string,
-  }]
+  }[],
   transactionHasErrored: boolean,
   transactionIsLoading: boolean,
 };

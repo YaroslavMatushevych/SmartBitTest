@@ -2,8 +2,8 @@
 import { Reducer, combineReducers } from 'redux';
 // typings
 import { AppState } from './typings';
-import { messages, messagesHasErrored, messagesIsLoading } from './getMessages';
-import { projectList, projectListHasErrored, projectListIsLoading } from './getProjectList';
+import messages from './getMessages';
+import projectList from './getProjectList';
 import toDoList from './getToDoList';
 import transactions from './getTransactionList';
 
@@ -11,11 +11,7 @@ import transactions from './getTransactionList';
 // application reducer
 export const appReducer = combineReducers({
   messages,
-  messagesHasErrored,
-  messagesIsLoading,
-  projectList, 
-  projectListHasErrored,
-  projectListIsLoading,
+  projectList,
   toDoList,
   transactions,
 });

@@ -5,14 +5,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import Cards from '../../../../ui-library/components/Cards';
 // actions
 import { messagesFetchData } from '../../../../actions/messagesActions';
+// typings
+import { AppState } from '../../../../reducers/typings';
 // styles
 import styles from './Messages.module.css';
 
 const Messages: React.FC = memo(() => {
 
-  const messages = useSelector((state: any) => state.messages);
-  const hasErrored = useSelector((state: any) => state.hasErrored);
-  const isLoading = useSelector((state: any) => state.isLoading);
+  const messages = useSelector((state: AppState) => state.messages.messagesItems);
+  const hasErrored = useSelector((state: AppState) => state.messages.messagesHasErrored);
+  const isLoading = useSelector((state: AppState) => state.messages.messagesIsLoading);
 
   const dispatch = useDispatch()
 

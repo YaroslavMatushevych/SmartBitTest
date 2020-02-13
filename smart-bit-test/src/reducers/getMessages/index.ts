@@ -1,47 +1,50 @@
 // typings
-import { messagesHasErroredAction, messagesIsLoadingAction, messagesFetchDataSuccessAction, State } from './typings';
+import { messagesActions, State } from './typings';
 // consts
-import { MESSAGES_FETCH_DATA_SUCCESS, MESSAGES_IS_LOADING, MESSAGES_HAS_ERRORED} from '../../consts';
+import {
+  MESSAGES_FETCH_DATA_SUCCESS,
+  MESSAGES_IS_LOADING,
+  MESSAGES_HAS_ERRORED
+} from '../../consts';
 
-const initialState: State = [
-  {_id: '',
+const initialState: State = {
+  messagesItems: [{
+    _id: '',
     date: '',
     index: 1,
     guid: '',
     replied: true,
     content: '',
-    name: {first: '', last: ''},
+    name: { first: '', last: '' },
     company: '',
     from: '',
-    tags: ['', '', '', ''],}
-];
+    tags: ['', '', '', ''],
+  }],
+  messagesHasErrored: false,
+  messagesIsLoading: false,
+};
 
-export const messagesHasErrored = (state = false, action: messagesHasErroredAction): boolean => {
+export default (state: State = initialState, action: messagesActions): State => {
   switch (action.type) {
-      case MESSAGES_HAS_ERRORED:
-          return action.payload.hasErrored;
-
-      default:
-          return state;
-  }
-}
-
-export const messagesIsLoading = (state = false, action: messagesIsLoadingAction): boolean => {
-  switch (action.type) {
-      case MESSAGES_IS_LOADING:
-          return action.payload.isLoading;
-
-      default:
-          return state;
-  }
-}
-
-export const messages = (state: State = initialState, action: messagesFetchDataSuccessAction) => {
-  switch (action.type) {
-      case MESSAGES_FETCH_DATA_SUCCESS:
-          return action.payload.messages;
-
-      default:
-          return state;
+    case MESSAGES_HAS_ERRORED:
+      const hasErrored = action.payload.hasErrored;
+      return {
+        ...state,
+        messagesHasErrored: hasErrored
+      };
+    case MESSAGES_IS_LOADING:
+      const isLoading = action.payload.isLoading;
+      return {
+        ...state,
+        messagesIsLoading: isLoading
+      };
+    case MESSAGES_FETCH_DATA_SUCCESS:
+      const messages = action.payload.messages;
+      return {
+        ...state,
+        messagesItems: messages
+      };
+    default:
+      return state;
   }
 }

@@ -21,7 +21,7 @@ const initialState: State = {
   transactionIsLoading: false,
 };
 
-export default (state: State = initialState, action: transactionActions) => {
+export default (state: State = initialState, action: transactionActions): State => {
   switch (action.type) {
     case TRANSACTION_LIST_HAS_ERRORED: {
       const { hasErrored } = action.payload;

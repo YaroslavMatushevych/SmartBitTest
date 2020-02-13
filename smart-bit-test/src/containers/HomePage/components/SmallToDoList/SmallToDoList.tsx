@@ -3,15 +3,17 @@ import React, { useEffect, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // components
 import Cards from '../../../../ui-library/components/Cards';
+// typings
+import { AppState } from '../../../../reducers/typings';
 // actions
 import { toDoListFetchData, toDoListCheckUnCheck } from '../../../../actions/toDoListActions';
 // styles
 import styles from './SmallToDoList.module.css';
 
 const SmallToDoList: React.FC = memo(() => {
-  const toDoList = useSelector((state: any) => state.toDoList.toDoListItems);
-  const hasErrored = useSelector((state: any) => state.toDoList.hasErrored);
-  const isLoading = useSelector((state: any) => state.toDoList.isLoading);
+  const toDoList = useSelector((state: AppState) => state.toDoList.toDoListItems);
+  const hasErrored = useSelector((state: AppState) => state.toDoList.toDoListHasErrored);
+  const isLoading = useSelector((state: AppState) => state.toDoList.toDoListIsLoading);
 
   const dispatch = useDispatch();
 
@@ -25,7 +27,7 @@ const SmallToDoList: React.FC = memo(() => {
     dispatch(toDoListCheckUnCheck(status, e.target.id))
   }
 
-  const renderToDoList = toDoList.map((toDoItem: { status: string, task: string, user: string }, index: string | undefined) => {
+  const renderToDoList = toDoList.map((toDoItem: any, index: any) => {
     return (
       <div key={index} className={styles.toDoItem}>
         <input

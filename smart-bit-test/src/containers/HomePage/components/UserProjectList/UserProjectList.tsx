@@ -3,13 +3,17 @@ import React, { useEffect, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // components
 import Cards from '../../../../ui-library/components/Cards';
+// typings
+import { AppState } from '../../../../reducers/typings';
 // actions
 import { projectListFetchData } from '../../../../actions/projectListActions';
 // styles
 import styles from './UserProjectList.module.css';
 
 const UserProjectList: React.FC = memo(() => {
-  const projectList = useSelector((state: any) => state.projectList);
+  const projectList = useSelector((state: AppState) => state.projectList.projectListItems);
+  const hasErrored = useSelector((state: AppState) => state.projectList.projectListHasErrored);
+  const isLoading = useSelector((state: AppState) => state.projectList.projectListIsLoading);
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -37,13 +41,6 @@ const UserProjectList: React.FC = memo(() => {
     return hours + ':' + minutes + ampm
   }
 
-  // const getMonth = (date: string, monthNames: string[]) => {
-  //   return monthNames[new Date(date).getMonth()]
-  // }
-  // const day = new Date(projectList.date).getDate();
-  // const month = getMonth(projectList.date, monthNames);
-  // const year = new Date(projectList.date).getFullYear();
-
   const renderListItems = projectList.map((projectList: any, index: number | string) => {
     const status = checkStatus(projectList.status);
     const value = checkValue(projectList.value);
@@ -61,28 +58,28 @@ const UserProjectList: React.FC = memo(() => {
 
   return (
     <>
-      {
-        (projectList) &&
-        <Cards
-          className={styles.UserProjectList}
-          heading='User Project list'
-          type='instruments'
-          content={
-            <table className={styles.listContainer}>
-              <thead>
-                <tr className={styles.listHeadings}>
-                  <th className={styles.listItemHeading}>Status</th>
-                  <th className={styles.listItemHeading}>Date</th>
-                  <th className={styles.listItemHeading}>User</th>
-                  <th className={styles.listItemHeading}>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {renderListItems}
-              </tbody>
-            </table>
-          }
-        />}
+      {(hasErrored) ? <p>Sorry! There was an error loading the items</p> :
+        (isLoading) ? <p>Loading…</p> :
+          <Cards
+            className={styles.UserProjectList}
+            heading='User Project list'
+            type='instruments'
+            content={
+              <table className={styles.listContainer}>
+                <thead>
+                  <tr className={styles.listHeadings}>
+                    <th className={styles.listItemHeading}>Status</th>
+                    <th className={styles.listItemHeading}>Date</th>
+                    <th className={styles.listItemHeading}>User</th>
+                    <th className={styles.listItemHeading}>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {renderListItems}
+                </tbody>
+              </table>
+            }
+          />}
     </>
   )
 });
