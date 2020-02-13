@@ -9,11 +9,12 @@ interface Props {
   className?: string;
   disabled?: boolean;
   type?: 'button' | 'submit';
-  text: string;
+  text?: string;
+  icon?:any;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button: React.FC<Props> = ({ text, onClick, id, className, disabled, type }) => {
+const Button: React.FC<Props> = ({ text, onClick, id, className, disabled, type, icon }) => {
   return (
     <button 
       className={cx(
@@ -25,6 +26,7 @@ const Button: React.FC<Props> = ({ text, onClick, id, className, disabled, type 
       disabled={disabled}
       >
       {text}
+      {icon}
     </button>
   )
 }

@@ -1,6 +1,8 @@
 // modules
 import React from 'react';
 import cx from 'classnames';
+// components
+import Button from '../Button';
 // styles
 import styles from './Cards.module.css';
 
@@ -34,9 +36,9 @@ const Card: React.FC<Props> = ({ heading, id, className, type, content, textSpan
     if (type === 'instruments') {
       return (
         <div className={styles.instruments}>
-          <i className="fas fa-arrow-up" />
-          <i className="fas fa-wrench" />
-          <i className="fas fa-trash" />
+          <Button className={styles.cardBtn} icon={<i className="fas fa-arrow-up" />}/>
+          <Button className={styles.cardBtn} icon={<i className="fas fa-wrench" />}/>
+          <Button className={styles.cardBtn} icon={<i className="fas fa-trash" />}/>
         </div>
       );
     }

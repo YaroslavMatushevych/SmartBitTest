@@ -10,4 +10,6 @@
   text-align: center;
   min-width: 40px;
   border: none;
+  outline: none;
+  min-width: auto;
 }
