@@ -1,11 +1,12 @@
 // modules
 import React, { useEffect, memo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';// components
+import { useDispatch, useSelector } from 'react-redux';
+// components
 import Cards from '../../../../ui-library/components/Cards';
 // const
 import { monthNames } from '../../../../consts';
 // actions
-import { projectListFetchData } from '../../../../actions/projectListActions';
+import { transactionsFetchData } from '../../../../actions/transactionsActions';
 // styles
 import styles from './Orders.module.css';
 // img
@@ -18,7 +19,7 @@ const Transactions: React.FC = memo(() => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(projectListFetchData('https://next.json-generator.com/api/json/get/Ek4VPrzMu'));
+    dispatch(transactionsFetchData('https://next.json-generator.com/api/json/get/Ek4VPrzMu'));
   }, [dispatch]);
 
 

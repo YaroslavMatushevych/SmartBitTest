@@ -5,6 +5,7 @@ import { AppState } from './typings';
 import { messages, messagesHasErrored, messagesIsLoading } from './getMessages';
 import { projectList, projectListHasErrored, projectListIsLoading } from './getProjectList';
 import toDoList from './getToDoList';
+import transactions from './getTransactionList';
 
 
 // application reducer
@@ -16,6 +17,7 @@ export const appReducer = combineReducers({
   projectListHasErrored,
   projectListIsLoading,
   toDoList,
+  transactions,
 });
 
 // high-level reducer
