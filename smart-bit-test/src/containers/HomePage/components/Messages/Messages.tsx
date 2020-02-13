@@ -34,7 +34,20 @@ const Messages: React.FC = memo(() => {
   return (
     <div className={styles.messageContainer}>
       {(hasErrored) ? <p>Sorry! There was an error loading the items</p> :
-        (isLoading) ? <p>Loading…</p> : <Cards heading='Messages' type='instruments' content={data} />}
+        (isLoading) ? <p>Loading…</p> :
+          <Cards
+            heading='Messages'
+            type='instruments'
+            content={
+              <>
+                <div className={styles.messageInfoContainer}>
+                  <h3 className={styles.newMessageText}>New Messages</h3>
+                  <p className={styles.messageInfo}>Tou have 22 new messages and 16 waiting in draft folder</p>
+                </div>
+                {data}
+              </>
+            }
+          />}
     </div>
   )
 });
