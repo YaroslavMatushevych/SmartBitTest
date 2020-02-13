@@ -9,7 +9,8 @@
   min-height: 100vh;
   background-color: rgb(10, 48, 49);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .navBar {
@@ -30,4 +31,24 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+}
+
+.profileContainer {
+  margin: 20px 0 40px;
+}
+
+.name {
+  color: white;
+}
+
+.profileImg {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profession {
+  color: rgb(150, 149, 149);
+  margin-top: 5px;
 }
