@@ -1,6 +1,6 @@
 .UserProjectList {
   margin: 0 20px;
-  flex-basis: 50%;
+  flex-basis: 48%;
 }
 
 .listItemHeading {
@@ -10,7 +10,7 @@
 
 .listItemHeading, .listItem {
   padding: 10px;
-  text-align-last: left;
+  text-align: left;
 }
 
 table {

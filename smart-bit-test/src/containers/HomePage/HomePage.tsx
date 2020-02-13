@@ -7,6 +7,7 @@ import MainInfo from './components/MainInfo';
 import Orders from './components/Orders';
 import UserProjectList from './components/UserProjectList';
 import SmallToDoList from './components/SmallToDoList';
+import Transactions from './components/Transactions';
 // styles
 import styles from './HomePage.module.css';
 
@@ -26,6 +27,7 @@ const HomePage: React.FC = memo(() => {
         <div className={styles.twoListAndTransactionContainer}>
           <UserProjectList />
           <SmallToDoList />
+          <Transactions />
         </div>
       </div>
     </main>
