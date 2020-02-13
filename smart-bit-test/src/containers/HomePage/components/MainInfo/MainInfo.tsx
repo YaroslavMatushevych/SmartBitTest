@@ -13,10 +13,11 @@ const MainInfo: React.FC = memo(() => {
     const addContent = (
       <div className={styles.addContent}>
         <p className={styles.number}>
-          {item.number}
+          {item.number + ',000'}
         </p>
         <p className={styles.smallText}>
           {item.smallText}
+          <span>{43 + index}%<i className="fas fa-long-arrow-alt-up" /></span>
         </p>
       </div>
     )

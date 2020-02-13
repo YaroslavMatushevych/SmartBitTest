@@ -14,4 +14,19 @@
 .addContent {
   padding: 15px;
   box-sizing: border-box;
+  text-align: left;
+}
+
+.number {
+  font-size: 30px;
+}
+
+.smallText {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.smallText span {
+  color: blue;
 }

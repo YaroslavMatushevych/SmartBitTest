@@ -25,7 +25,12 @@ const Card: React.FC<Props> = ({ heading, id, className, type, content, textSpan
         </select>
       )
     }
-  if (type === 'span') return (<span className={colorSpan}>{textSpan}</span>);
+    if (type === 'span') {
+      if (colorSpan === 'redSpan') return (<span className={styles.redSpan}>{textSpan}</span>);
+      if (colorSpan === 'lightGreenSpan') return (<span className={styles.lightGreenSpan}>{textSpan}</span>);
+      if (colorSpan === 'blueSpan') return (<span className={styles.blueSpan}>{textSpan}</span>);
+      if (colorSpan === 'greenSpan') return (<span className={styles.greenSpan}>{textSpan}</span>);
+    }
     if (type === 'instruments') {
       return (
         <div className={styles.instruments}>
