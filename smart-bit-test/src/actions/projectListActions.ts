@@ -1,7 +1,10 @@
 // modules
 import { action } from 'typesafe-actions';
 // consts
-import { PROJECT_LIST_FETCH_DATA_SUCCESS, PROJECT_LIST_IS_LOADING, PROJECT_LIST_HAS_ERRORED} from '../consts';
+import { 
+  PROJECT_LIST_FETCH_DATA_SUCCESS, 
+  PROJECT_LIST_IS_LOADING, 
+  PROJECT_LIST_HAS_ERRORED} from '../consts';
 
 export interface ProjectList {
   status: string,

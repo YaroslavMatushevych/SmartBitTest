@@ -6,6 +6,7 @@ import NavList from './components/NavList';
 import MainInfo from './components/MainInfo';
 import Orders from './components/Orders';
 import UserProjectList from './components/UserProjectList';
+import SmallToDoList from './components/SmallToDoList';
 // styles
 import styles from './HomePage.module.css';
 
@@ -14,7 +15,7 @@ const HomePage: React.FC = memo(() => {
   return (
     <main className={styles.main}>
       <aside className={styles.aside}>
-        <nav className={styles.nav}>
+        <nav className={styles.navBar}>
           <NavList />
         </nav>
       </aside>
@@ -22,7 +23,10 @@ const HomePage: React.FC = memo(() => {
         <MainInfo />
         <Orders />
         <Messages />
-        <UserProjectList />
+        <div className={styles.twoListAndTransactionContainer}>
+          <UserProjectList />
+          <SmallToDoList />
+        </div>
       </div>
     </main>
   )

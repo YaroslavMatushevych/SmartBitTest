@@ -4,6 +4,8 @@ import { Reducer, combineReducers } from 'redux';
 import { AppState } from './typings';
 import { messages, messagesHasErrored, messagesIsLoading } from './getMessages';
 import { projectList, projectListHasErrored, projectListIsLoading } from './getProjectList';
+import toDoList from './getToDoList';
+
 
 // application reducer
 export const appReducer = combineReducers({
@@ -13,6 +15,7 @@ export const appReducer = combineReducers({
   projectList, 
   projectListHasErrored,
   projectListIsLoading,
+  toDoList,
 });
 
 // high-level reducer

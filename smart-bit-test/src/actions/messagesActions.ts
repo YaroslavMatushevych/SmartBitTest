@@ -1,7 +1,10 @@
 // modules
 import { action } from 'typesafe-actions';
 // consts
-import { MESSAGES_FETCH_DATA_SUCCESS, MESSAGES_IS_LOADING, MESSAGES_HAS_ERRORED} from '../consts';
+import { 
+  MESSAGES_FETCH_DATA_SUCCESS, 
+  MESSAGES_IS_LOADING, 
+  MESSAGES_HAS_ERRORED} from '../consts';
 
 export interface Messages {
   _id: string,

@@ -19,6 +19,7 @@
 .instruments i{
   color: gray;
   padding: 0 3px;
+  cursor: pointer;
 }
 
 .redSpan, .blueSpan, .greenSpan, .lightGreenSpan {

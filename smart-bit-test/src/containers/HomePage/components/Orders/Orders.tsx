@@ -13,7 +13,8 @@ const Orders: React.FC = memo(() => {
     <>
       <Cards 
         className={styles.ordersContainer} 
-        heading='Orders' type='select' 
+        heading='Orders' 
+        type='select' 
         content={
           <img 
             className={styles.imgOrder} 

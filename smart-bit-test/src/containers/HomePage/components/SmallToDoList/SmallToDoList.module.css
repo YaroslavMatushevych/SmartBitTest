@@ -1,0 +1,35 @@
+.smallToDoList {
+  flex-basis: 50%;
+}
+
+.toDoItemsContainer {
+  box-sizing: border-box;
+  padding: 20px 15px 15px;
+}
+
+.toDoItem {
+  text-align: left;
+  background-color: whitesmoke;
+  margin-bottom: 4px;
+  height: auto;
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  padding: 5px 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.task {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.inputCheckbox {
+  cursor: pointer;
+}
+
+.inputCheckbox:checked + .task {
+  text-decoration: line-through;
+}
